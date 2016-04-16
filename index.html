@@ -16,7 +16,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Megapinball</h1>
-      <h2 class="project-tagline">NO APTO PARA EPILEPTICOS </h2>
+      <h2 class="project-tagline">USE THE SPACE FOR SURVIVE </h2>
      
     </section>
 
@@ -73,6 +73,9 @@ function keyDownHandler(e) {
 function keyUpHandler(e) {
     if(e.keyCode == 39) {
         rightPressed = false;
+    }
+    else if(e.keyCode == 32){
+        paddleWidth = paddleWidth+5;
     }
     else if(e.keyCode == 37) {
         leftPressed = false;
@@ -174,7 +177,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawBricks();
     drawBall();
-    drawBall2();
+    drawBall2();     
     drawPaddle();
     drawScore();
     drawLives();
@@ -253,9 +256,16 @@ function draw() {
     s += ds;
     
     requestAnimationFrame(draw);
+    
+}
+
+function tocanarices(){
+    paddleWidth = paddleWidth-5
 }
 
 draw();
+
+setInterval(tocanarices,1000)
 </script>
 
     </section>
